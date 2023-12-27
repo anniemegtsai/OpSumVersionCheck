@@ -2,12 +2,16 @@ import pandas as pd
 from openpyxl.utils import get_column_letter, column_index_from_string
 from DeltaCalculation import deltaCalculation
 
-start_point = [5, 'C']
-excel_file_path = '../Sample/Sample.xlsx'
+# start_point = [5, 'C']
+excel_file_path = "../Sample/Sample_Operations Summary Q1'24 Week 7 v4 version check - Copy.xlsx"
+
 
 sheet_list = [
-	[start_point, "month1", "month2"],
-	[start_point, "month3","month4"]
+	[[9,"K"], "Total AMAT", "AMAT wk 6"],
+	[[8, "I"], "SPG","SPG wk6"]
+	[[8, "I"], "AGS", "AGS wk6"]
+	[[8, "I"], "Display", "Display wk6"],
+	[[8, "I"], "Corporate","Corporate wk6"]
 ]
 
 for i in range(len(sheet_list)):

@@ -54,7 +54,7 @@ def deltaCalculation(excel_file_path, start_point, sheet_name_current, sheet_nam
 					row_index = i + start_point[0] + 1
 					column_letter = get_column_letter(column_index)
 
-					result_list.append(f"={sheet_name_current}!{column_letter}{row_index}-{sheet_name_previous}!{column_letter}{row_index}")
+					result_list.append(f"='{sheet_name_current}'!{column_letter}{row_index}-'{sheet_name_previous}'!{column_letter}{row_index}")
 					# if v1 == v2:
 					# 	result_list.append(0)
 					# else:
