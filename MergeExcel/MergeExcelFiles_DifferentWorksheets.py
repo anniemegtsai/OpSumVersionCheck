@@ -2,7 +2,7 @@ import os
 from openpyxl import load_workbook
 
 # 指定目錄路徑
-directory_path = r'C:\Users\annie\Desktop\Python\Test\Combine'
+directory_path = r'C:\Users\annie\Desktop\Python\Sample\test'
 
 # 創建一個新的 Excel 檔案
 output_workbook = None
@@ -28,7 +28,7 @@ for filename in os.listdir(directory_path):
                     new_sheet.append(row)
 
 # 保存合併後的 Excel 檔案
-output_path = r'C:\Users\annie\Desktop\Python\Test\merged_workbook.xlsx'
+output_path = r'C:\Users\annie\Desktop\Python\Sample\test\merged_workbook.xlsx'
 output_workbook.save(output_path)
 
 print(f'合併完成，結果保存到 {output_path}')

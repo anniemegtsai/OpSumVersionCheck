@@ -1,9 +1,9 @@
 import pandas as pd
 from openpyxl.utils import get_column_letter, column_index_from_string
-
+import random
+from openpyxl import Workbook, load_workbook
 
 def delta_calculation(excel_file_path, start_point, sheet_name_current, sheet_name_previous):
-    sheet_name_delta = sheet_name_current + " delta"
 
     header_index = start_point[0] - 1
     column_start_index = column_index_from_string(start_point[1]) - 1
@@ -30,7 +30,7 @@ def delta_calculation(excel_file_path, start_point, sheet_name_current, sheet_na
             continue
         current_column_index = current_column_index + 1
 
-        previous_column_index = -1
+        previous_column_index = 0
         for header_name_previous in header_row_previous:
             previous_column_index = previous_column_index + 1
 
@@ -58,7 +58,4 @@ def delta_calculation(excel_file_path, start_point, sheet_name_current, sheet_na
                 empty_array.append(None)
             delta_data[header_name_current] = empty_array
 
-    # Write the data into the Delta sheet
-    with pd.ExcelWriter(excel_file_path, engine='openpyxl', mode='a') as writer:
-        result_df = pd.DataFrame(delta_data)
-        result_df.to_excel(writer, sheet_name=sheet_name_delta, index=False, startrow=header_index)
+    return pd.DataFrame(delta_data)
